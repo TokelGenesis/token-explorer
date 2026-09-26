@@ -19,6 +19,9 @@ ELASTIC_SERVER=xxx
 TOKEL_SERVER=xxx
 ELASTIC_CA_CERT=/path/to/elasticsearch/config/certs/http_ca.crt
 ADMIN_API_KEY=xxx
+# optional; defaults suit the web app, raise them for the indexer
+ELASTIC_REQUEST_TIMEOUT_MS=5000
+ELASTIC_MAX_RETRIES=1
 ```
 
 - `ELASTIC_CA_CERT`: CA used to verify the Elasticsearch TLS certificate. Verification is always on; set `ELASTIC_TLS_INSECURE=1` only for local development.

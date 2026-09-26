@@ -24,8 +24,10 @@ const elasticclient = new Client({
     // Only skip certificate verification when explicitly requested (local dev).
     rejectUnauthorized: process.env.ELASTIC_TLS_INSECURE !== "1",
   },
-  maxRetries: 5,
-  requestTimeout: 60000,
+  // Fail fast when Elasticsearch is down so web requests don't pile up for
+  // minutes; the indexer can raise these via env.
+  maxRetries: Number(process.env.ELASTIC_MAX_RETRIES ?? 1),
+  requestTimeout: Number(process.env.ELASTIC_REQUEST_TIMEOUT_MS ?? 5000),
   sniffOnStart: true,
 });
 
