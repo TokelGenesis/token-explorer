@@ -14,18 +14,31 @@
   "assignees": [
     "thecomputergenie"
   ],
-  "automerge": true,
+  "automerge": false,
   "additionalBranchPrefix": "{{parentDir}}-",
   "packageRules": [
     {
-      "matchPackageNames": ["containerbase/node"],
+      "matchPackageNames": [
+        "containerbase/node"
+      ],
       "versioning": "node"
     },
     {
-      "matchDepTypes": ["dependencies"],
-      "labels": ["dependencies"],
-      "updateTypes": ["minor", "patch", "pin", "digest"]
+      "matchDepTypes": [
+        "dependencies"
+      ],
+      "labels": [
+        "dependencies"
+      ],
+      "updateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest"
+      ]
     }
-  ]
+  ],
+  "major": {
+    "dependencyDashboardApproval": true
+  }
 }
-  
