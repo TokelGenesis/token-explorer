@@ -11,7 +11,7 @@
     "populate": "ts-node crons/tokens-index-update.ts | pino-pretty -c -l"
   },
   "dependencies": {
-    "@elastic/elasticsearch": "^8.2.1",
+    "@elastic/elasticsearch": "^8.19.1",
     "@headlessui/react": "^1.6.4",
     "@heroicons/react": "^1.0.6",
     "@types/identicon.js": "^2.3.1",
@@ -38,5 +38,8 @@
     "postcss": "^8.4.14",
     "tailwindcss": "^3.0.24",
     "typescript": "4.7.2"
+  },
+  "resolutions": {
+    "komodo-rpc-js/axios": "^1.12.2"
   }
 }
