@@ -42,63 +42,66 @@ const HomeFeatured: React.FC<HomeFeaturedProps> = ({ tokens }) => {
                   key={token.tokenid}
                   className="bg-gray-800 rounded-lg scroll-ml-6 shrink-0 hover:shadow-lg hover:-translate-y-1 transform transition-all duration-200"
                 >
-                  <Link href={PATHS.TOKEN(token.tokenid)} key={token.tokenid}>
-                    <a title={`View ${token.name}`}>
-                      <div className="p-4">
-                        <div className="overflow-hidden rounded aspect-w-4 aspect-h-3">
-                          <img
-                            className="object-cover w-full h-full"
-                            src={transformedUrl}
-                            alt={token.name}
-                          />
-                        </div>
-                        <p className="mt-4 text-base font-bold text-white">
-                          {token.name}
-                        </p>
-                        <p className="mt-1 text-sm font-medium text-gray-400 truncate">
-                          {token.description}
-                        </p>
-                        <hr className="mt-3 border-gray-700" />
-                        <div className="grid grid-cols-2 gap-4 mt-3">
-                          <div>
-                            <p className="text-xs font-medium tracking-wide text-gray-400 uppercase">
-                              Collection
-                            </p>
-                            <p
-                              className={classNames(
-                                "mt-1 text-sm font-bold text-white",
-                                {
-                                  italic: !collectionName,
-                                }
-                              )}
-                            >
-                              {collectionName || "No Collection"}
-                            </p>
-                          </div>
+                  <Link
+                    href={PATHS.TOKEN(token.tokenid)}
+                    key={token.tokenid}
+                    title={`View ${token.name}`}>
 
-                          <div>
-                            <p className="text-xs font-medium tracking-wide text-gray-400 uppercase">
-                              {!!lastPrice
-                                ? "Last Price"
-                                : !!lastAskingPrice
-                                ? "Last Offer"
-                                : !!lastBidPrice
-                                ? "Last Bid"
-                                : "Last Price"}
-                            </p>
-                            <p className="mt-1 text-sm font-bold text-white">
-                              {!!lastPrice
-                                ? `${formatNumberTkl(lastPrice)} TKL`
-                                : !!lastAskingPrice
-                                ? `${formatNumberTkl(lastAskingPrice)} TKL`
-                                : !!lastBidPrice
-                                ? `${formatNumberTkl(lastBidPrice)} TKL`
-                                : "N/A"}
-                            </p>
-                          </div>
+                    <div className="p-4">
+                      <div className="overflow-hidden rounded aspect-w-4 aspect-h-3">
+                        <img
+                          className="object-cover w-full h-full"
+                          src={transformedUrl}
+                          alt={token.name}
+                        />
+                      </div>
+                      <p className="mt-4 text-base font-bold text-white">
+                        {token.name}
+                      </p>
+                      <p className="mt-1 text-sm font-medium text-gray-400 truncate">
+                        {token.description}
+                      </p>
+                      <hr className="mt-3 border-gray-700" />
+                      <div className="grid grid-cols-2 gap-4 mt-3">
+                        <div>
+                          <p className="text-xs font-medium tracking-wide text-gray-400 uppercase">
+                            Collection
+                          </p>
+                          <p
+                            className={classNames(
+                              "mt-1 text-sm font-bold text-white",
+                              {
+                                italic: !collectionName,
+                              }
+                            )}
+                          >
+                            {collectionName || "No Collection"}
+                          </p>
+                        </div>
+
+                        <div>
+                          <p className="text-xs font-medium tracking-wide text-gray-400 uppercase">
+                            {!!lastPrice
+                              ? "Last Price"
+                              : !!lastAskingPrice
+                              ? "Last Offer"
+                              : !!lastBidPrice
+                              ? "Last Bid"
+                              : "Last Price"}
+                          </p>
+                          <p className="mt-1 text-sm font-bold text-white">
+                            {!!lastPrice
+                              ? `${formatNumberTkl(lastPrice)} TKL`
+                              : !!lastAskingPrice
+                              ? `${formatNumberTkl(lastAskingPrice)} TKL`
+                              : !!lastBidPrice
+                              ? `${formatNumberTkl(lastBidPrice)} TKL`
+                              : "N/A"}
+                          </p>
                         </div>
                       </div>
-                    </a>
+                    </div>
+
                   </Link>
                 </div>
               );

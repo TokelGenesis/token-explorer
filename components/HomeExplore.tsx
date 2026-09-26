@@ -37,23 +37,26 @@ const HomeExplore: React.FC<HomeExploreProps> = ({ tokens }) => {
               >
                 <div className="p-4">
                   <div className="flex items-stretch">
-                    <Link href={PATHS.TOKEN(token.tokenid)}>
-                      <a title={token.name} className="block shrink-0">
-                        <img
-                          className="object-cover h-auto rounded w-36 sm:w-32"
-                          src={transformedUrl}
-                          alt={token.name}
-                        />
-                      </a>
+                    <Link
+                      href={PATHS.TOKEN(token.tokenid)}
+                      title={token.name}
+                      className="block shrink-0">
+
+                      <img
+                        className="object-cover h-auto rounded w-36 sm:w-32"
+                        src={transformedUrl}
+                        alt={token.name}
+                      />
+
                     </Link>
 
                     <div className="flex flex-col justify-between flex-1 ml-5">
                       <div>
                         <p className="text-base font-bold text-gray-900">
-                          <Link href={PATHS.TOKEN(token.tokenid)}>
-                            <a title={PATHS.TOKEN(token.tokenid)}>
-                              {token.name}
-                            </a>
+                          <Link href={PATHS.TOKEN(token.tokenid)} title={PATHS.TOKEN(token.tokenid)}>
+
+                            {token.name}
+
                           </Link>
                         </p>
                         <p className="mt-1 text-sm font-medium text-gray-500 flex gap-1">
@@ -62,13 +65,13 @@ const HomeExplore: React.FC<HomeExploreProps> = ({ tokens }) => {
                             src={`data:image/png;base64,${authorIdenticon}`}
                             alt={token.owner}
                           />
-                          <Link href={PATHS.EXPLORE({ search: token.owner })}>
-                            <a
-                              title={token.owner}
-                              className="font-bold text-gray-900"
-                            >
-                              {trimmedAuthorPublicKey}
-                            </a>
+                          <Link
+                            href={PATHS.EXPLORE({ search: token.owner })}
+                            title={token.owner}
+                            className="font-bold text-gray-900">
+
+                            {trimmedAuthorPublicKey}
+
                           </Link>
                         </p>
                       </div>
@@ -101,10 +104,11 @@ const HomeExplore: React.FC<HomeExploreProps> = ({ tokens }) => {
         </div>
 
         <div className="flex mt-6">
-          <Link href={PATHS.EXPLORE()}>
-            <a className="ml-auto flex items-center gap-1 font-semibold text-2xl">
-              See All Tokens <ArrowRightIcon className="h-4 w-4" />
-            </a>
+          <Link
+            href={PATHS.EXPLORE()}
+            className="ml-auto flex items-center gap-1 font-semibold text-2xl">
+            See All Tokens <ArrowRightIcon className="h-4 w-4" />
+
           </Link>
         </div>
       </div>

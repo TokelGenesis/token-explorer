@@ -37,18 +37,18 @@ const Pagination: React.FC<PaginationProps> = ({
   });
 
   const Page: React.FC<PageProps> = ({ page, isCurrent, disabled }) => (
-    <Link href={disabled ? "#" : pageLink(page as number)}>
-      <a
-        className={classNames(
-          "bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium",
-          {
-            "z-10 bg-indigo-50 border-sky-600 text-sky-700 relative inline-flex items-center px-4 py-2 border text-sm font-medium":
-              isCurrent,
-          }
-        )}
-      >
-        {page}
-      </a>
+    <Link
+      href={disabled ? "#" : pageLink(page as number)}
+      className={classNames(
+        "bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium",
+        {
+          "z-10 bg-indigo-50 border-sky-600 text-sky-700 relative inline-flex items-center px-4 py-2 border text-sm font-medium":
+            isCurrent,
+        }
+      )}>
+
+      {page}
+
     </Link>
   );
 

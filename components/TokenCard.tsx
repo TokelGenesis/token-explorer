@@ -36,32 +36,32 @@ const TokenCard: React.FC<TokenCardProps> = ({ token }) => {
             src={`data:image/png;base64,${authorIdenticon}`}
             alt={token.owner}
           />
-          <Link href={PATHS.EXPLORE({ owner: token.owner })}>
-            <a
-              title={`View tokens created by ${token.owner}`}
-              className="flex-1 ml-2 text-sm font-medium text-gray-700"
-            >
-              {trimmedAuthorPublicKey}
-            </a>
+          <Link
+            href={PATHS.EXPLORE({ owner: token.owner })}
+            title={`View tokens created by ${token.owner}`}
+            className="flex-1 ml-2 text-sm font-medium text-gray-700">
+
+            {trimmedAuthorPublicKey}
+
           </Link>
         </div>
       </div>
 
       {!!token.dataAsJson?.url && (
-        <Link href={PATHS.TOKEN(token.tokenid)}>
-          <a
-            title={`View ${token.name}`}
-            className="block overflow-hidden aspect-w-1 aspect-h-1"
-          >
-            <img
-              className="object-cover w-full h-full"
-              loading="lazy"
-              // @ts-ignore
-              onError={(e) => e.target.removeAttribute("src")}
-              src={transformedUrl}
-              alt={token.name}
-            />
-          </a>
+        <Link
+          href={PATHS.TOKEN(token.tokenid)}
+          title={`View ${token.name}`}
+          className="block overflow-hidden aspect-w-1 aspect-h-1">
+
+          <img
+            className="object-cover w-full h-full"
+            loading="lazy"
+            // @ts-ignore
+            onError={(e) => e.target.removeAttribute("src")}
+            src={transformedUrl}
+            alt={token.name}
+          />
+
         </Link>
       )}
 
@@ -80,8 +80,8 @@ const TokenCard: React.FC<TokenCardProps> = ({ token }) => {
         </div>
 
         <p className="text-base font-bold text-primary">
-          <Link href={PATHS.TOKEN(token.tokenid)}>
-            <a title={`View ${token.name}`}>{token.name}</a>
+          <Link href={PATHS.TOKEN(token.tokenid)} title={`View ${token.name}`}>
+            {token.name}
           </Link>
         </p>
         <p className="mt-1 text-sm font-medium text-gray-500">
@@ -108,15 +108,15 @@ const TokenCard: React.FC<TokenCardProps> = ({ token }) => {
           </div>
 
           <div>
-            <Link href={PATHS.TOKEN(token.tokenid)}>
-              <a
-                title={`View ${token.name}`}
-                className="inline-flex items-center justify-center px-3 py-2 text-xs font-bold tracking-widest text-primary uppercase transition-all duration-200 bg-transparent border border-primary rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary hover:border-primary hover:bg-primary hover:text-white"
-                role="button"
-              >
-                <span className="sr-only">View {token.name}</span>
-                <EyeIcon className="w-4 h-4" />
-              </a>
+            <Link
+              href={PATHS.TOKEN(token.tokenid)}
+              title={`View ${token.name}`}
+              className="inline-flex items-center justify-center px-3 py-2 text-xs font-bold tracking-widest text-primary uppercase transition-all duration-200 bg-transparent border border-primary rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary hover:border-primary hover:bg-primary hover:text-white"
+              role="button">
+
+              <span className="sr-only">View {token.name}</span>
+              <EyeIcon className="w-4 h-4" />
+
             </Link>
           </div>
         </div>

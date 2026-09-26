@@ -1,7 +1,7 @@
 import { MenuIcon, XIcon } from "@heroicons/react/solid";
 import React, { useState } from "react";
 
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 import NavSearch from "./NavSearch";
 import { PATHS } from "utils/defines";
@@ -16,15 +16,15 @@ const Navbar: React.FC<NavbarProps> = () => {
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           <div className="flex-shrink-0">
-            <Link href={PATHS.HOME}>
-              <a title="" className="flex">
-                <Image
-                  src="/tokel.svg"
-                  alt="Tokel Logo"
-                  width={90}
-                  height={45}
-                />
-              </a>
+            <Link href={PATHS.HOME} title="" className="flex">
+
+              <Image
+                src="/tokel.svg"
+                alt="Tokel Logo"
+                width={90}
+                height={45}
+              />
+
             </Link>
           </div>
 
@@ -51,13 +51,13 @@ const Navbar: React.FC<NavbarProps> = () => {
           </nav>
 
           <nav className="hidden lg:flex lg:items-center lg:justify-end lg:space-x-10">
-            <Link href={PATHS.EXPLORE()}>
-              <a
-                title="Explore Tokel"
-                className="text-base font-medium text-gray-100 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-white focus:ring-offset-2"
-              >
+            <Link
+              href={PATHS.EXPLORE()}
+              title="Explore Tokel"
+              className="text-base font-medium text-gray-100 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-white focus:ring-offset-2">
+              
                 Explore
-              </a>
+              
             </Link>
 
             <button
