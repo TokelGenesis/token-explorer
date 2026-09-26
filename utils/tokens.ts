@@ -19,8 +19,8 @@ const KeyValueSchema = Joi.object()
 export const searchQuerySchema = Joi.object({
   sort: KeyValueSchema,
   search: KeyValueSchema,
-  page: Joi.number().optional(),
-  limit: Joi.number().optional(),
+  page: Joi.number().integer().min(1).max(1000).optional(),
+  limit: Joi.number().integer().min(1).max(30).optional(),
 });
 
 const validate = (schema: Joi.ObjectSchema<any>, object: any) => {

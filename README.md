@@ -17,4 +17,9 @@ RPC_USER=xxx
 RPC_PASS=xxx
 ELASTIC_SERVER=xxx
 TOKEL_SERVER=xxx
+ELASTIC_CA_CERT=/path/to/elasticsearch/config/certs/http_ca.crt
+ADMIN_API_KEY=xxx
 ```
+
+- `ELASTIC_CA_CERT`: CA used to verify the Elasticsearch TLS certificate. Verification is always on; set `ELASTIC_TLS_INSECURE=1` only for local development.
+- `ADMIN_API_KEY`: required for `PUT /api/tokens/[id]` (e.g. marking a token as featured), sent as `Authorization: Bearer <key>`. If unset, the endpoint is disabled. Generate one with `openssl rand -hex 32`.

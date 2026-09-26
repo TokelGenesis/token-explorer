@@ -8,6 +8,7 @@ import {
 } from "utils/tokens";
 
 import nc from "next-connect";
+import requireAdmin from "utils/middlewares/requireAdmin";
 import validate from "utils/middlewares/validate";
 
 export default nc({
@@ -23,21 +24,24 @@ export default nc({
     validate({ query: tokenIdSchema }),
     async (req: NextApiRequest, res: NextApiResponse) => {
       try {
-        const doc = await getToken(req.query.id.toString());
+        const doc = await getToken(String(req.query.id));
         return res.status(200).json(doc);
       } catch (e) {
-        return res.status(400).json(e);
+        console.error(e);
+        return res.status(404).json({ error: "Token not found" });
       }
     }
   )
   .put(
+    requireAdmin,
     validate({ query: tokenIdSchema, body: tokenUpdateSchema }),
     async (req: NextApiRequest, res: NextApiResponse) => {
       try {
-        await editToken(req.query.id.toString(), req.body);
+        await editToken(String(req.query.id), req.body);
         return res.status(200).end();
       } catch (e) {
-        return res.status(400).json(e);
+        console.error(e);
+        return res.status(400).json({ error: "Update failed" });
       }
     }
   );

@@ -1,11 +1,13 @@
 const { Client } = require("@elastic/elasticsearch");
+const fs = require("fs");
 
 const conf = {
   maxPerPage: 30,
   server: process.env.ELASTIC_SERVER || "",
   port: process.env.ELASTIC_PORT || "9200",
   localhost: "127.0.0.1",
-  cert: "/home/test/elasticsearch-8.2.2/config/certs/http_ca.crt",
+  // CA that signed the Elasticsearch HTTP certificate (config/certs/http_ca.crt)
+  cert: process.env.ELASTIC_CA_CERT,
   index: process.env.ELASTIC_INDEX,
 };
 
@@ -18,8 +20,9 @@ const elasticclient = new Client({
     password: process.env.ELASTIC_PASS,
   },
   tls: {
-    ca: conf.cert,
-    rejectUnauthorized: false,
+    ca: conf.cert ? fs.readFileSync(conf.cert) : undefined,
+    // Only skip certificate verification when explicitly requested (local dev).
+    rejectUnauthorized: process.env.ELASTIC_TLS_INSECURE !== "1",
   },
   maxRetries: 5,
   requestTimeout: 60000,
